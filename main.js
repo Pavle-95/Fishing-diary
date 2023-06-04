@@ -76,12 +76,16 @@ let closeAddPersonPopUp = document.querySelectorAll('.closePopUp');
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (name, jobDescription, age) => {
-  var newPerson = {
-    name: name,
-    jobDescription:jobDescription,
-    age: age
-  }
-  data.push(newPerson);
+  // Step by step
+  // var newPerson = {
+  //   name: name,
+  //   jobDescription:jobDescription,
+  //   age: age
+  // }
+  // data.push(newPerson);
+
+  // Spread operator
+  data = [...data, {name, jobDescription, age}];
 }
 
 // Pokupljane iz elementa iz doma i pozivanje funkcije
@@ -91,6 +95,7 @@ addPersonFormSubmit.addEventListener("submit", (e) => {
   let newPersonName = document.querySelector('#name').value;
   let newPersonJob = document.querySelector('#job').value;
   let newPersonAge = document.querySelector('#age').value;
+  
   addPerson(newPersonName, newPersonJob, newPersonAge);
   write(data);
   document.querySelector('.addPeronPopUp').style.display = 'none';

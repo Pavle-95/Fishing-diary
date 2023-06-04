@@ -41,9 +41,9 @@ let write = (data) => {
   data.forEach(element => {
     personContainer.innerHTML += `
       <div class="single-person"> 
-        <h2>Name:  ${element.name} </h2>
-        <h2>Job Description:  ${element.jobDescription} </h2>
-        <h2>Age:  ${element.age} </h2>
+        <h2>Ime:  ${element.name} </h2>
+        <h2>Opis posla:  ${element.jobDescription} </h2>
+        <h2>Godine:  ${element.age} </h2>
       </div>
     `
   })
@@ -56,20 +56,23 @@ write(data);
 let addPersonBTN = document.querySelector('.addPersonBTN');
 addPersonBTN.addEventListener('click', () => {
   document.querySelector('.addPeronPopUp').style.display = 'block';
+  document.querySelector('.removePersonPopUp').style.display = 'none';
 })
 
 let removePersonBTN = document.querySelector('.removePersonBTN');
 removePersonBTN.addEventListener('click', () => {
   document.querySelector('.removePersonPopUp').style.display = 'block';
+  document.querySelector('.addPeronPopUp').style.display = 'none';
 })
 
-let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
-  closeAddPersonPopUp.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('.addPeronPopUp').style.display = 'none';
-    document.querySelector('.removePersonPopUp').style.display = 'none';
-  }
-)
+let closeAddPersonPopUp = document.querySelectorAll('.closePopUp'); 
+  closeAddPersonPopUp.forEach((element) => {
+    element.addEventListener('click', () => {
+      document.querySelector('.addPeronPopUp').style.display = 'none';
+      document.querySelector('.removePersonPopUp').style.display = 'none';
+    }
+)})
+
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (name, jobDescription, age) => {
@@ -81,9 +84,9 @@ let addPerson = (name, jobDescription, age) => {
   data.push(newPerson);
 }
 
-let addPersonSubmit = document.querySelector('.addPersonSubmit');
-
-addPersonSubmit.addEventListener('click', (e) => {
+// Pokupljane iz elementa iz doma i pozivanje funkcije
+let addPersonFormSubmit = document.querySelector('#addPersonForm');
+addPersonFormSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
   let newPersonName = document.querySelector('#name').value;
   let newPersonJob = document.querySelector('#job').value;
@@ -99,8 +102,9 @@ let removePerson = (name) => {
   write(data);
 }
 
-let removePersonSubmit = document.querySelector('.removePersonSubmit');
-removePersonSubmit.addEventListener('click', (e) => {
+// Pokupljane iz elementa iz doma i pozivanje funkcije
+let removePersonFormSubmit = document.querySelector('#removePersonForm');
+removePersonFormSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
   let newPersonName = document.querySelector('#fullName').value;
   removePerson(newPersonName);

@@ -9,6 +9,14 @@ body {
   background-color: antiquewhite;
 }
 
+.addPeronPopUp h2, .removePersonPopUp h2 {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
 body h1 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
@@ -63,7 +71,7 @@ body h1 {
   font-size: 22px;
 }
 
-.addPeronPopUp form button {
+.addPeronPopUp form  input[type=submit] {
   background-color: aquamarine;
   padding: 10px 15px;
   border-radius: 5px;
@@ -71,9 +79,10 @@ body h1 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
   font-size: 22px;
+
 }
 
-.addPeronPopUp form button:hover {
+.addPeronPopUp form input[type=submit]:hover {
   cursor: pointer;
 }
 
@@ -82,6 +91,7 @@ body h1 {
   padding: 10px 15px;
   border-radius: 5px;
   position: absolute;
+  border: none;
   right: 0px;
   transform: translateX(50%) translateY(-50%);
   top: 0px;
@@ -118,7 +128,7 @@ body h1 {
   font-size: 22px;
 }
 
-.removePersonPopUp form button {
+.removePersonPopUp form input[type=submit] {
   background-color: rgb(255, 127, 127);
   padding: 10px 15px;
   border-radius: 5px;
@@ -128,7 +138,12 @@ body h1 {
   font-size: 22px;
 }
 
+.removePersonPopUp form input[type=submit]:hover {
+  cursor: pointer;
+}
+
 .removePersonPopUp form .closePopUp {
+  border: none;
   background-color: rgb(255, 127, 127);
   padding: 10px 15px;
   border-radius: 5px;

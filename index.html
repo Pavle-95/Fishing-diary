@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Vezbica</title>
+</head>
+<body>
+  <h1>List of People</h1>
+  <div class="list">
+  </div>
+
+  <div class="addPeronPopUp">
+    <form>
+      <button class="closePopUp">X</button>
+      <input id="name" type="text" placeholder="Full Name">
+      <input id="job" type="text" placeholder="Job Description">
+      <input id="age" type="number" placeholder="Age">
+      <button class="addPersonSubmit">Submit</button>
+    </form>
+  </div>
+
+  <div class="removePersonPopUp">
+    <form>
+      <button class="closePopUp">X</button>
+      <input id="fullName" type="text" placeholder="Person Name">
+      <button class="removePersonSubmit">Remove</button>
+    </form>
+  </div>
+  
+  <div class="btn-s">
+    <button class="addPersonBTN">Add Person</button>
+    <button class="removePersonBTN">Delete Person</button>
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>

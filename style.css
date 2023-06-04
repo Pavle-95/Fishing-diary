@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 40px 20px;
+  background-color: antiquewhite;
+}
+
+body h1 {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+}
+
+.list {
+  padding: 20px 40px;
+  display: block;
+  max-width: 550px;
+  margin: 0px auto;
+}
+
+.single-person {
+  background-color: rgb(250, 243, 233);
+  margin: 20px 30px;
+  padding: 20px 20px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.single-person h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+}
+
+.addPeronPopUp {
+  border-radius: 10px;
+  display: none;
+  padding: 40px 30px;
+  background-color: rgb(182, 226, 211);
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.addPeronPopUp form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.addPeronPopUp form input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.addPeronPopUp form button {
+  background-color: aquamarine;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.addPeronPopUp form button:hover {
+  cursor: pointer;
+}
+
+.addPeronPopUp form .closePopUp {
+  background-color: rgb(255, 127, 127);
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: absolute;
+  right: 0px;
+  transform: translateX(50%) translateY(-50%);
+  top: 0px;
+}
+.addPeronPopUp form .closePopUp:hover  {
+  cursor: pointer;
+}
+
+.removePersonPopUp {
+  border-radius: 10px;
+  display: none;
+  padding: 40px 30px;
+  background-color: rgb(226, 187, 182);
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.removePersonPopUp form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.removePersonPopUp form input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.removePersonPopUp form button {
+  background-color: rgb(255, 127, 127);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.removePersonPopUp form .closePopUp {
+  background-color: rgb(255, 127, 127);
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: absolute;
+  right: 0px;
+  transform: translateX(50%) translateY(-50%);
+  top: 0px;
+}
+.removePersonPopUp form .closePopUp:hover  {
+  cursor: pointer;
+}
+
+.btn-s {
+  display: block;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addPersonBTN {
+  margin: 10px 20px;
+  background-color: aquamarine;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+  transition: .3s ease;
+}
+
+.removePersonBTN {
+  margin: 10px 20px;
+  background-color: rgb(255, 127, 127);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+  transition: .3s ease;
+}
+
+.addPersonBTN:hover, .removePersonBTN:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: .3s ease;
+}

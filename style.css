@@ -31,9 +31,10 @@ body h1 {
 }
 
 .single-person {
+  position: relative;
   background-color: rgb(250, 243, 233);
   margin: 20px 30px;
-  padding: 20px 20px 20px;
+  padding: 20px 40px 20px 20px;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -41,6 +42,8 @@ body h1 {
 .single-person h2 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .addPeronPopUp {
@@ -79,7 +82,6 @@ body h1 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
   font-size: 22px;
-
 }
 
 .addPeronPopUp form input[type=submit]:hover {
@@ -87,7 +89,11 @@ body h1 {
 }
 
 .addPeronPopUp form .closePopUp {
+  display: block;
   background-color: rgb(255, 127, 127);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 16px;
   padding: 10px 15px;
   border-radius: 5px;
   position: absolute;
@@ -100,59 +106,7 @@ body h1 {
   cursor: pointer;
 }
 
-.removePersonPopUp {
-  border-radius: 10px;
-  display: none;
-  padding: 40px 30px;
-  background-color: rgb(226, 187, 182);
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.removePersonPopUp form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.removePersonPopUp form input {
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 500;
-  font-size: 22px;
-}
-
-.removePersonPopUp form input[type=submit] {
-  background-color: rgb(255, 127, 127);
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 500;
-  font-size: 22px;
-}
-
-.removePersonPopUp form input[type=submit]:hover {
-  cursor: pointer;
-}
-
-.removePersonPopUp form .closePopUp {
-  border: none;
-  background-color: rgb(255, 127, 127);
-  padding: 10px 15px;
-  border-radius: 5px;
-  position: absolute;
-  right: 0px;
-  transform: translateX(50%) translateY(-50%);
-  top: 0px;
-}
-.removePersonPopUp form .closePopUp:hover  {
+.closePopUp:hover  {
   cursor: pointer;
 }
 
@@ -177,15 +131,29 @@ body h1 {
 }
 
 .removePersonBTN {
-  margin: 10px 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
   background-color: rgb(255, 127, 127);
-  padding: 10px 15px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: none;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 500;
-  font-size: 22px;
-  transition: .3s ease;
+  font-size: 16px;
+}
+
+.editPersonBTN {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background-color: rgb(127, 187, 255);
+  padding: 5px 8.5px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .addPersonBTN:hover, .removePersonBTN:hover {

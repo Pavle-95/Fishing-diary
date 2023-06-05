@@ -5,37 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Vezbica</title>
+  <title>CRUD</title>
 </head>
 <body>
-  <h1>Lista osoba</h1>
+  <h1>List of person</h1>
+
+  <div class="btn-s">
+    <button class="addPersonBTN">Add Person</button>
+  </div>
+
   <div class="list">
   </div>
 
   <div class="addPeronPopUp">
-    <h2>Unesi podatke nove osobe</h2>
+    <h2>Enter the new person</h2>
     <form id="addPersonForm">
-      <button class="closePopUp">X</button>
-      <input id="name" type="text" placeholder="Full Name">
-      <input id="job" type="text" placeholder="Job Description">
-      <input id="age" type="number" placeholder="Age">
-      <input type="submit">
+      <a class="closePopUp">&#10005;</a>
+      <input id="name" type="text" placeholder="Full Name" required>
+      <input id="job" type="text" placeholder="Job Description" required>
+      <input id="age" type="number" placeholder="Age" required>
+      <input id="add" type="submit">
     </form>
   </div>
 
-  <div class="removePersonPopUp">
-    <h2>Unesi ime osobe koju zelis da obrises</h2>
-    <form id="removePersonForm">
-      <button type="submit" class="closePopUp">X</button>
-      <input id="fullName" type="text" placeholder="Person Name">
-      <input type="submit">
-    </form>
-  </div>
-  
-  <div class="btn-s">
-    <button class="addPersonBTN">Add Person</button>
-    <button class="removePersonBTN">Delete Person</button>
-  </div>
   <script src="./main.js"></script>
 </body>
 </html>

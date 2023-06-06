@@ -41,9 +41,9 @@ let write = (data) => {
   data.forEach((element, idx) => {
     personContainer.innerHTML += `
       <div class="single-person"> 
-        <h2>Full Name:  ${element.name} </h2>
-        <h2>Job Description:  ${element.jobDescription} </h2>
-        <h2>Age:  ${element.age} </h2>
+        <h2>Full Name:<span> ${element.name} </span></h2>
+        <h2>Job Description:<span> ${element.jobDescription} </span></h2>
+        <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
         <button onClick=(removePerson(${element.id})) class="removePersonBTN">&#10005;</button>
         <button onClick=(edit(${idx})) class="editPersonBTN">&#9998;</button>
       </div>
@@ -54,10 +54,15 @@ let write = (data) => {
 // Pozivanje funkcije za ispisivanje
 write(data);
 
+
+let isEditing = false;
+let editPersonID;
+
 // Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
 let addPersonBTN = document.querySelector('.addPersonBTN');
   addPersonBTN.addEventListener('click', () => {
   document.querySelector('.addPeronPopUp').style.display = 'block';
+  isEditingFunc(isEditing);
   let newPersonName = document.querySelector('#name');
   let newPersonJob = document.querySelector('#job');
   let newPersonAge = document.querySelector('#age');
@@ -66,6 +71,15 @@ let addPersonBTN = document.querySelector('.addPersonBTN');
   newPersonAge.value = '';
 })
 
+const isEditingFunc = (condition) => {
+  let h2Text = document.querySelector('.h2Text');
+  if(condition) {
+    h2Text.innerHTML = `Please edit the selected person`
+  }
+  else {  
+    h2Text.innerHTML = `Enter the new person`
+  }
+}
 // Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
 let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
   closeAddPersonPopUp.addEventListener('click', (e) => {
@@ -73,9 +87,6 @@ let closeAddPersonPopUp = document.querySelector('.closePopUp');
     document.querySelector('.addPeronPopUp').style.display = 'none';
     isEditing = false;
 })
-
-let isEditing = false;
-let editPersonID;
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (id, name, jobDescription, age) => {
@@ -129,6 +140,7 @@ let removePerson = (id) => {
 // Editovanje vec postojecih ljudi unutar liste
 let edit = (id) => {
   isEditing = true;
+  isEditingFunc(isEditing);
   editPersonID = id;
   document.querySelector('.addPeronPopUp').style.display = 'block';
   let edited = data.filter(element => element.id === id);

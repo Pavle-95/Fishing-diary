@@ -26,7 +26,6 @@ let write = (data) => {
   }
 }
 // Popunjavanje niza iz local storage-a
-data = JSON.parse(localStorage.getItem('database'))
 // Pozivanje funkcije za ispisivanje
 write(data);
 

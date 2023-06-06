@@ -1,36 +1,5 @@
 // Database (Neki podaci)
-let data = [
-  {
-    id: 0,
-    name: 'Pavle Pesic',
-    jobDescription: 'Junior Developer',
-    age: 27
-  },
-  {
-    id: 1,
-    name: 'Marko Markovic',
-    jobDescription: 'Junior Designer',
-    age: 22
-  },
-  {
-    id: 2,
-    name: 'Janko Stankovic',
-    jobDescription: 'PHP Developer',
-    age: 25
-  },
-  {
-    id: 3,
-    name: 'Zoran Kesic',
-    jobDescription: 'Novinar',
-    age: 42
-  },
-  {
-    id: 4,
-    name: 'Mirko Jovanovic',
-    jobDescription: 'Manager',
-    age: 27
-  }
-]
+let data = []
 
 // Elementi iz DOM-a za ispisivanje podataka
 let personContainer = document.querySelector('.list');
@@ -44,31 +13,36 @@ let write = (data) => {
         <h2>Full Name:<span> ${element.name} </span></h2>
         <h2>Job Description:<span> ${element.jobDescription} </span></h2>
         <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
-        <button onClick=(removePerson(${element.id})) class="removePersonBTN">&#10005;</button>
-        <button onClick=(edit(${idx})) class="editPersonBTN">&#9998;</button>
-      </div>
-    `
+        <button onClick="removePerson(${element.id})" class="removePersonBTN">&#10005;</button>
+        <button onClick="edit(${element.id}, ${idx})" class="editPersonBTN">&#9998;</button>
+      </div>`
   })
 }
 
+// // Fetcovanje podatka iz localstorage-a
+data = JSON.parse(localStorage.getItem('database'));
 // Pozivanje funkcije za ispisivanje
 write(data);
-
-
+// Promenjive za kontrolu editovnja 
 let isEditing = false;
 let editPersonID;
+
+// Colecting data from the input element Function
+const inputFieldsHander = (name, job, age) => {
+  let newPersonName = document.querySelector('#name');
+  let newPersonJob = document.querySelector('#job');
+  let newPersonAge = document.querySelector('#age');
+  newPersonName.value = name;
+  newPersonJob.value = job;
+  newPersonAge.value = age;
+}
 
 // Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
 let addPersonBTN = document.querySelector('.addPersonBTN');
   addPersonBTN.addEventListener('click', () => {
   document.querySelector('.addPeronPopUp').style.display = 'block';
   isEditingFunc(isEditing);
-  let newPersonName = document.querySelector('#name');
-  let newPersonJob = document.querySelector('#job');
-  let newPersonAge = document.querySelector('#age');
-  newPersonName.value = '';
-  newPersonJob.value = '';
-  newPersonAge.value = '';
+  inputFieldsHander('', '', '');
 })
 
 const isEditingFunc = (condition) => {
@@ -80,6 +54,7 @@ const isEditingFunc = (condition) => {
     h2Text.innerHTML = `Enter the new person`
   }
 }
+
 // Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
 let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
   closeAddPersonPopUp.addEventListener('click', (e) => {
@@ -90,7 +65,8 @@ let closeAddPersonPopUp = document.querySelector('.closePopUp');
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (id, name, jobDescription, age) => {
-  if (isEditing) {    
+  if (isEditing) {  
+    // Step by Step 
     let editedPerson = {
       id: editPersonID,
       name: name,
@@ -101,14 +77,6 @@ let addPerson = (id, name, jobDescription, age) => {
     isEditing = false;
   }
   else {
-  // Step by step
-  // var newPerson = {
-  //   name: name,
-  //   jobDescription:jobDescription,
-  //   age: age
-  // }
-  // data.push(newPerson);
-
   // Spread operator
     data = [...data, {id, name, jobDescription, age}];
   }
@@ -119,12 +87,14 @@ let addPersonFormSubmit = document.querySelector('#addPersonForm');
 addPersonFormSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
   // Colecting data from input elements
-  let newPersonID = data.length;
+  let newPersonID = new Date().getTime().toString();
   let newPersonName = document.querySelector('#name');
   let newPersonJob = document.querySelector('#job');
   let newPersonAge = document.querySelector('#age');
   // Adding new person to the array of persons
   addPerson(newPersonID, newPersonName.value, newPersonJob.value, newPersonAge.value);
+  // Store data to the browser
+  localStorage.setItem('database', JSON.stringify(data));
   // Wirte function to write new array of persons
   write(data);
   // Close pop-up and reset the input value
@@ -133,22 +103,20 @@ addPersonFormSubmit.addEventListener("submit", (e) => {
 
 // Funkcija za Brisanje Elemenata
 let removePerson = (id) => {
-  data = data.filter(element => element.id !== id);
+  data = data.filter(element => element.id != id);
+  localStorage.setItem('database', JSON.stringify(data));
   write(data);
 }
 
 // Editovanje vec postojecih ljudi unutar liste
-let edit = (id) => {
+let edit = (id, idx) => {
   isEditing = true;
   isEditingFunc(isEditing);
-  editPersonID = id;
+  let edited = data.filter(element => element.id == id);
+  editPersonID = idx;
   document.querySelector('.addPeronPopUp').style.display = 'block';
-  let edited = data.filter(element => element.id === id);
-  // Colecting data from input elements
-  let newPersonName = document.querySelector('#name');
-  let newPersonJob = document.querySelector('#job');
-  let newPersonAge = document.querySelector('#age');
-  newPersonName.value = edited[0].name;
-  newPersonJob.value = edited[0].jobDescription;
-  newPersonAge.value = edited[0].age;
+  // Give the input values of edit person;
+  inputFieldsHander(edited[0].name, edited[0].jobDescription, edited[0].age);
+  // Scrool to top 
+  window.scrollTo(0,0);
 }

@@ -1,6 +1,10 @@
 // Database (Neki podaci)
 let data = [
-
+  {
+    name: "Pavle Pesic",
+    jobDescription: "Junior Full Stack",
+    age: 27
+  }
 ]
 
 // Elementi iz DOM-a za ispisivanje podataka
@@ -24,6 +28,7 @@ let write = (data) => {
 
 // // Fetcovanje podatka iz localstorage-a
 localStorage.setItem('database', JSON.stringify(data));
+
 data = JSON.parse(localStorage.getItem('database'));
 // Pozivanje funkcije za ispisivanje
 write(data);

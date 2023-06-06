@@ -1,10 +1,5 @@
 // Database (Neki podaci)
 let data = [
-  {
-    name: "Pavle Pesic",
-    jobDescription: "Junior Full Stack",
-    age: 27
-  }
 ]
 
 // Elementi iz DOM-a za ispisivanje podataka
@@ -12,26 +7,27 @@ let personContainer = document.querySelector('.list');
 
 // Funkcija za ispisivanje
 let write = (data) => {
-  personContainer.innerHTML = ``;
-  data.forEach((element, idx) => {
-    personContainer.innerHTML += `
-      <div class="single-person"> 
-        <h2>Full Name:<span> ${element.name} </span></h2>
-        <h2>Job Description:<span> ${element.jobDescription} </span></h2>
-        <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
-        <button onClick="removePerson(${element.id})" class="removePersonBTN">&#10005;</button>
-        <button onClick="edit(${element.id}, ${idx})" class="editPersonBTN">&#9998;</button>
-      </div>`
-  })
-
+  console.log(data === null);
+  if (data === null) {
+    return;
+  }
+  else {
+    personContainer.innerHTML = ``;
+    data.forEach((element, idx) => {
+      personContainer.innerHTML += `
+        <div class="single-person"> 
+          <h2>Full Name:<span> ${element.name} </span></h2>
+          <h2>Job Description:<span> ${element.jobDescription} </span></h2>
+          <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
+          <button onClick="removePerson(${element.id})" class="removePersonBTN">&#10005;</button>
+          <button onClick="edit(${element.id}, ${idx})" class="editPersonBTN">&#9998;</button>
+        </div>`
+    })
+  }
 }
 
-// // Fetcovanje podatka iz localstorage-a
-localStorage.setItem('database', JSON.stringify(data));
-
-data = JSON.parse(localStorage.getItem('database'));
 // Pozivanje funkcije za ispisivanje
-write(data);
+write(JSON.parse(localStorage.getItem('database')));
 // Promenjive za kontrolu editovnja 
 let isEditing = false;
 let editPersonID;

@@ -1,7 +1,8 @@
 // Database (Neki podaci)
-let data = [
-]
-
+let data = [];
+// Promenjive za kontrolu editovnja 
+let isEditing = false;
+let editPersonID;
 // Elementi iz DOM-a za ispisivanje podataka
 let personContainer = document.querySelector('.list');
 
@@ -24,14 +25,12 @@ let write = (data) => {
     })
   }
 }
-
+// Popunjavanje niza iz local storage-a
+data = JSON.parse(localStorage.getItem('database'))
 // Pozivanje funkcije za ispisivanje
-write(JSON.parse(localStorage.getItem('database')));
-// Promenjive za kontrolu editovnja 
-let isEditing = false;
-let editPersonID;
+write(data);
 
-// Colecting data from the input element Function
+// Funkcija za hendlovanje user inputa
 const inputFieldsHander = (name, job, age) => {
   let newPersonName = document.querySelector('#name');
   let newPersonJob = document.querySelector('#job');
@@ -41,14 +40,7 @@ const inputFieldsHander = (name, job, age) => {
   newPersonAge.value = age;
 }
 
-// Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
-let addPersonBTN = document.querySelector('.addPersonBTN');
-  addPersonBTN.addEventListener('click', () => {
-  document.querySelector('.addPeronPopUp').style.display = 'block';
-  isEditingFunc(isEditing);
-  inputFieldsHander('', '', '');
-})
-
+// Funkcija za ispis tekst u pop-up u zavisnosti od toga da li se element edituje ili ne 
 const isEditingFunc = (condition) => {
   let h2Text = document.querySelector('.h2Text');
   if(condition) {
@@ -58,14 +50,6 @@ const isEditingFunc = (condition) => {
     h2Text.innerHTML = `Enter the new person`
   }
 }
-
-// Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
-let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
-  closeAddPersonPopUp.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('.addPeronPopUp').style.display = 'none';
-    isEditing = false;
-})
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (id, name, jobDescription, age) => {
@@ -86,6 +70,42 @@ let addPerson = (id, name, jobDescription, age) => {
   }
 }
 
+// Funkcija za Brisanje Elemenata
+let removePerson = (id) => {
+  data = data.filter(element => element.id != id);
+  localStorage.setItem('database', JSON.stringify(data));
+  write(data);
+}
+
+// Funkcija za editovanje vec postojecih ljudi unutar liste
+let edit = (id, idx) => {
+  isEditing = true;
+  isEditingFunc(isEditing);
+  let edited = data.filter(element => element.id == id);
+  editPersonID = idx;
+  document.querySelector('.addPeronPopUp').style.display = 'block';
+  // Give the input values of edit person;
+  inputFieldsHander(edited[0].name, edited[0].jobDescription, edited[0].age);
+  // Scrool to top 
+  window.scrollTo(0,0);
+}
+
+// Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
+let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
+  closeAddPersonPopUp.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.addPeronPopUp').style.display = 'none';
+    isEditing = false;
+})
+
+// Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
+let addPersonBTN = document.querySelector('.addPersonBTN');
+  addPersonBTN.addEventListener('click', () => {
+  document.querySelector('.addPeronPopUp').style.display = 'block';
+  isEditingFunc(isEditing);
+  inputFieldsHander('', '', '');
+})
+
 // Pokupljane iz elementa iz doma i pozivanje funkcije
 let addPersonFormSubmit = document.querySelector('#addPersonForm');
 addPersonFormSubmit.addEventListener("submit", (e) => {
@@ -104,23 +124,3 @@ addPersonFormSubmit.addEventListener("submit", (e) => {
   // Close pop-up and reset the input value
   document.querySelector('.addPeronPopUp').style.display = 'none';
 })
-
-// Funkcija za Brisanje Elemenata
-let removePerson = (id) => {
-  data = data.filter(element => element.id != id);
-  localStorage.setItem('database', JSON.stringify(data));
-  write(data);
-}
-
-// Editovanje vec postojecih ljudi unutar liste
-let edit = (id, idx) => {
-  isEditing = true;
-  isEditingFunc(isEditing);
-  let edited = data.filter(element => element.id == id);
-  editPersonID = idx;
-  document.querySelector('.addPeronPopUp').style.display = 'block';
-  // Give the input values of edit person;
-  inputFieldsHander(edited[0].name, edited[0].jobDescription, edited[0].age);
-  // Scrool to top 
-  window.scrollTo(0,0);
-}

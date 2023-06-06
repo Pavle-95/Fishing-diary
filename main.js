@@ -7,7 +7,6 @@ let personContainer = document.querySelector('.list');
 
 // Funkcija za ispisivanje
 let write = (data) => {
-  console.log(data === null);
   if (data === null) {
     return;
   }

@@ -14,6 +14,7 @@ let handleCatchID;
 let catchContainer = document.querySelector('.list');
 let removeCatchPopUp = document.querySelector('.removeCatchPopUp');
 let removeCatchText = document.querySelector('.removeCatchText')
+
 // Funkcija za ispisivanje
 let write = (data) => {
   if (data === null ) {
@@ -83,6 +84,7 @@ let addCatch = (id, name, water, location, weight) => {
 // Funkcija za Brisanje Elemenata
 let removeCatch = (id, idx) => {
   handleCatchID = id;
+  document.querySelector('.addPeronPopUp').style.display = 'none';
   removeCatchPopUp.style.display = "block";
   removeCatchText.innerHTML = `<h2>Are you sure you want to delete: "${data[idx].name}"</h2>`
   // Scrool to top 

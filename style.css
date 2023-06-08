@@ -10,6 +10,14 @@ body {
   background-color: antiquewhite;
 }
 
+.day-night p {
+  padding: 2px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  transform: translateX(-15px);
+  transition: .3s ease;
+}
+
 .day-night {
   background-color: transparent;
   position: absolute;
@@ -19,16 +27,8 @@ body {
   z-index: 4;
 }
 
-.day-night p {
-  padding: 2px;
-  background-color: aliceblue;
-  border-radius: 50%;
-  transition: .3s ease;
-  transform: translateX(-15px);
-}
-
 .day-night::after {
-  left: -19px;
+  left: -20px;
   top: -2px;
   display: block;
   content: "";
@@ -40,8 +40,23 @@ body {
   border-radius: 20px;
 }
 
+.fish-gif {
+  height: auto;
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-49%);
+}
 
-.addPeronPopUp h2, .removePersonPopUp h2 {
+.fish-gif img {
+  margin: 0px auto;
+  display: block;
+  max-width: 91%;
+  height: auto;
+  pointer-events: none;
+}
+
+.addPeronPopUp h2, .removeCatchPopUp h2 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
@@ -62,7 +77,7 @@ body h1 {
   margin: 0px auto;
 }
 
-.single-person {
+.single-catch {
   position: relative;
   background-color: rgb(250, 243, 233);
   margin: 20px 0px;
@@ -72,7 +87,7 @@ body h1 {
   box-shadow: 0 0 10px darkgray;
 }
 
-.single-person h2 {
+.single-catch h2 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 20px;
@@ -81,14 +96,14 @@ body h1 {
   width: 100%;
   line-height: 20px;
 }
-.single-person h2 span {
+.single-catch h2 span {
   width: 100%;
   display: block;
   color: #484545;
   font-weight: 500;
   text-align: center;
 }
-.single-person h2 .textLeft {
+.single-catch h2 .textLeft {
   display: inline;
 }
 
@@ -103,7 +118,7 @@ body h1 {
   transform: translateX(-50%);
 }
 
-.removePersonPopUp {
+.removeCatchPopUp {
   border-radius: 10px;
   display: none;
   padding: 40px 30px;
@@ -114,7 +129,7 @@ body h1 {
   transform: translateX(-50%);
 }
 
-.removePersonPopUp .btn-s .btn-1 {
+.removeCatchPopUp .btn-s .btn-1 {
   background-color: rgb(255, 127, 127);
   margin-right: 20px;
   padding: 10px 15px;
@@ -125,7 +140,7 @@ body h1 {
   font-size: 22px;
 }
 
-.removePersonPopUp .btn-s .btn-2 {
+.removeCatchPopUp .btn-s .btn-2 {
   background-color: rgb(88 227 58 / 40%);
   padding: 10px 15px;
   border-radius: 5px;
@@ -135,7 +150,7 @@ body h1 {
   font-size: 22px;
 }
 
-.removePersonPopUp .btn-s .btn-2:hover, .removePersonPopUp .btn-s .btn-1:hover {
+.removeCatchPopUp .btn-s .btn-2:hover, .removeCatchPopUp .btn-s .btn-1:hover {
   cursor: pointer;
   transition: .3s ease;
   box-shadow: 0 0 10px gray;
@@ -214,7 +229,7 @@ body h1 {
   align-items: center;
 }
 
-.addPersonBTN {
+.addCatchBTN {
   margin: 10px 20px;
   background-color: rgb(88 227 58 / 40%);
   padding: 10px 15px;
@@ -226,7 +241,7 @@ body h1 {
   transition: .3s ease;
 }
 
-.removePersonBTN {
+.removeCatchBTN {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -242,7 +257,7 @@ body h1 {
   text-align: center;
 }
 
-.editPersonBTN {
+.editCatchBTN {
   position: absolute;
   right: 10px;
   top: 50px;
@@ -258,7 +273,7 @@ body h1 {
   text-align: center;
 }
 
-.editPersonBTN:hover, .removePersonBTN:hover, .addPersonBTN:hover {
+.editCatchBTN:hover, .removeCatchBTN:hover, .addCatchBTN:hover {
   cursor: pointer;
   transition: .3s ease;
   box-shadow: 0 0 10px gray;

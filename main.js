@@ -9,26 +9,27 @@ else {
 }
 // Promenjive za kontrolu editovnja 
 let isEditing = false;
-let editPersonID;
+let handleCatchID;
 // Elementi iz DOM-a za ispisivanje podataka
-let personContainer = document.querySelector('.list');
-let removePersonPopUp = document.querySelector('.removePersonPopUp');
-let removePersonText = document.querySelector('.removePersonText')
+let catchContainer = document.querySelector('.list');
+let removeCatchPopUp = document.querySelector('.removeCatchPopUp');
+let removeCatchText = document.querySelector('.removeCatchText')
 // Funkcija za ispisivanje
 let write = (data) => {
   if (data === null ) {
     return;
   }
   else {
-    personContainer.innerHTML = ``;
+    catchContainer.innerHTML = ``;
     data.forEach((element, idx) => {
-      personContainer.innerHTML += `
-        <div class="single-person"> 
-          <h2>Full Name:<span> ${element.name} </span></h2>
-          <h2>Job Description:<span> ${element.jobDescription} </span></h2>
-          <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
-          <button onClick="removePerson(${element.id}, ${idx})" class="removePersonBTN">&#10005;</button>
-          <button onClick="edit(${element.id}, ${idx})" class="editPersonBTN">&#9998;</button>
+      catchContainer.innerHTML += `
+        <div class="single-catch"> 
+          <h2>Type of fish:<span> ${element.name} </span></h2>
+          <h2>Fishing water:<span> ${element.water} </span></h2>
+          <h2>Fishing location:<span> ${element.location} </span></h2>
+          <h2>Fish weight:<span class="textLeft" > ${element.weight}kg </span></h2>
+          <button onClick="removeCatch(${element.id}, ${idx})" class="removeCatchBTN">&#10005;</button>
+          <button onClick="editCatch(${element.id}, ${idx})" class="editCatchBTN">&#9998;</button>
         </div>`
     })
   }
@@ -37,107 +38,110 @@ let write = (data) => {
 write(data);
 
 // Funkcija za hendlovanje user inputa
-const inputFieldsHander = (name, job, age) => {
-  let newPersonName = document.querySelector('#name');
-  let newPersonJob = document.querySelector('#job');
-  let newPersonAge = document.querySelector('#age');
-  newPersonName.value = name;
-  newPersonJob.value = job;
-  newPersonAge.value = age;
+const inputFieldsHander = (name, water, location, weight) => {
+  let newFishName = document.querySelector('#name');
+  let newFishingWater = document.querySelector('#water');
+  let newFishingLocation = document.querySelector('#location');
+  let newFishWeight = document.querySelector('#weight');
+  newFishName.value = name;
+  newFishingWater.value = water;
+  newFishingLocation.value = location
+  newFishWeight.value = weight;
 }
 
 // Funkcija za ispis tekst u pop-up u zavisnosti od toga da li se element edituje ili ne 
 const isEditingFunc = (condition) => {
   let h2Text = document.querySelector('.h2Text');
   if(condition) {
-    h2Text.innerHTML = `Please edit the selected person`
+    h2Text.innerHTML = `Please edit the selected catch`
   }
   else {  
-    h2Text.innerHTML = `Enter the new person`
+    h2Text.innerHTML = `Enter the new type of catch`
   }
 }
 
 // Funkcija za dodavanje Elemenata u niz
-let addPerson = (id, name, jobDescription, age) => {
+let addCatch = (id, name, water, location, weight) => {
   localStorage.setItem('database', JSON.stringify(data));
   if (isEditing) {  
     // Step by Step 
-    let editedPerson = {
-      id: editPersonID,
+    let handleCatch = {
+      id: handleCatchID,
       name: name,
-      jobDescription: jobDescription,
-      age: age,
+      water: water,
+      location: location,
+      weight: weight,
     }
-    data[editPersonID] = editedPerson;
+    data[handleCatchID] = handleCatch;
     isEditing = false;
   }
   else {
   // Spread operator
-    data = [...data, {id, name, jobDescription, age}];
+    data = [...data, {id, name, water, location, weight}];
   }
 }
 // Funkcija za Brisanje Elemenata
-let removePerson = (id, idx) => {
-  editPersonID = id;
-  removePersonPopUp.style.display = "block";
-  removePersonText.innerHTML = `<h2>Are you sure you want to delete: "${data[idx].name}"</h2>`
+let removeCatch = (id, idx) => {
+  handleCatchID = id;
+  removeCatchPopUp.style.display = "block";
+  removeCatchText.innerHTML = `<h2>Are you sure you want to delete: "${data[idx].name}"</h2>`
   // Scrool to top 
   window.scrollTo(0,0);
 }
 
 // Funkcija za editovanje vec postojecih ljudi unutar liste
-let edit = (id, idx) => {
+let editCatch = (id, idx) => {
   isEditing = true;
   isEditingFunc(isEditing);
   let edited = data.filter(element => element.id == id);
-  editPersonID = idx;
+  handleCatchID = idx;
   document.querySelector('.addPeronPopUp').style.display = 'block';
-  // Give the input values of edit person;
-  inputFieldsHander(edited[0].name, edited[0].jobDescription, edited[0].age);
+  // Give the input values of edit Catch;
+  inputFieldsHander(edited[0].name, edited[0].water, edited[0].location, edited[0].weight);
   // Scrool to top 
   window.scrollTo(0,0);
 }
 
-let removePersonHandler = (condition) => {
-
+let removeCatchHandler = (condition) => {
   if (condition) {
-    data = data.filter(element => element.id != editPersonID);
+    data = data.filter(element => element.id != handleCatchID);
     localStorage.setItem('database', JSON.stringify(data));
     write(data);
   }
-  removePersonPopUp.style.display = "none";
+  removeCatchPopUp.style.display = "none";
 };
 
 // Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
-let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
-  closeAddPersonPopUp.addEventListener('click', (e) => {
+let closeAddCatchPopUp = document.querySelector('.closePopUp'); 
+  closeAddCatchPopUp.addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('.addPeronPopUp').style.display = 'none';
     isEditing = false;
 })
 
 // Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
-let addPersonBTN = document.querySelector('.addPersonBTN');
-  addPersonBTN.addEventListener('click', () => {
+let addCatchBTN = document.querySelector('.addCatchBTN');
+  addCatchBTN.addEventListener('click', () => {
   document.querySelector('.addPeronPopUp').style.display = 'block';
   isEditingFunc(isEditing);
-  inputFieldsHander('', '', '');
+  inputFieldsHander('','','','');
 })
 
 // Pokupljane iz elementa iz doma i pozivanje funkcije
-let addPersonFormSubmit = document.querySelector('#addPersonForm');
-addPersonFormSubmit.addEventListener("submit", (e) => {
+let addCatchFormSubmit = document.querySelector('#addCatchForm');
+addCatchFormSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
   // Colecting data from input elements
-  let newPersonID = new Date().getTime().toString();
-  let newPersonName = document.querySelector('#name');
-  let newPersonJob = document.querySelector('#job');
-  let newPersonAge = document.querySelector('#age');
-  // Adding new person to the array of persons
-  addPerson(newPersonID, newPersonName.value, newPersonJob.value, newPersonAge.value);
+  let newFishID = new Date().getTime().toString();
+  let newFishName = document.querySelector('#name');
+  let newFishingWater = document.querySelector('#water');
+  let newFishingLocation = document.querySelector('#location');
+  let newFishWeight = document.querySelector('#weight');
+  // Adding new Catch to the array of Catchs
+  addCatch(newFishID, newFishName.value, newFishingWater.value, newFishingLocation.value, newFishWeight.value);
   // Store data to the browser
   localStorage.setItem('database', JSON.stringify(data));
-  // Wirte function to write new array of persons
+  // Wirte function to write new array of Catchs
   write(data);
   // Close pop-up and reset the input value
   document.querySelector('.addPeronPopUp').style.display = 'none';

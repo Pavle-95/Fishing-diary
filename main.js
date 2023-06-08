@@ -36,42 +36,6 @@ let write = (data) => {
 // Pozivanje funkcije za ispisivanje
 write(data);
 
-// Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
-let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
-  closeAddPersonPopUp.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('.addPeronPopUp').style.display = 'none';
-    isEditing = false;
-})
-
-// Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
-let addPersonBTN = document.querySelector('.addPersonBTN');
-  addPersonBTN.addEventListener('click', () => {
-  document.querySelector('.addPeronPopUp').style.display = 'block';
-  isEditingFunc(isEditing);
-  inputFieldsHander('', '', '');
-  // localStorage.setItem('database', JSON.stringify(data));
-})
-
-// Pokupljane iz elementa iz doma i pozivanje funkcije
-let addPersonFormSubmit = document.querySelector('#addPersonForm');
-addPersonFormSubmit.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // Colecting data from input elements
-  let newPersonID = new Date().getTime().toString();
-  let newPersonName = document.querySelector('#name');
-  let newPersonJob = document.querySelector('#job');
-  let newPersonAge = document.querySelector('#age');
-  // Adding new person to the array of persons
-  addPerson(newPersonID, newPersonName.value, newPersonJob.value, newPersonAge.value);
-  // Store data to the browser
-  localStorage.setItem('database', JSON.stringify(data));
-  // Wirte function to write new array of persons
-  write(data);
-  // Close pop-up and reset the input value
-  document.querySelector('.addPeronPopUp').style.display = 'none';
-})
-
 // Funkcija za hendlovanje user inputa
 const inputFieldsHander = (name, job, age) => {
   let newPersonName = document.querySelector('#name');

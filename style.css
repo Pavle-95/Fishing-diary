@@ -14,7 +14,7 @@ body {
   background-color: transparent;
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 35px;
   border: none;
   z-index: 4;
 }
@@ -24,11 +24,11 @@ body {
   background-color: aliceblue;
   border-radius: 50%;
   transition: .3s ease;
-  transform: translateX(0px);
+  transform: translateX(-15px);
 }
 
 .day-night::after {
-  left: -4px;
+  left: -19px;
   top: -2px;
   display: block;
   content: "";

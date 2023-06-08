@@ -1,5 +1,12 @@
 // Database (Neki podaci)
 let data = [];
+// Popunjavanje niza iz local storage-a ako postoji local storage
+if (JSON.parse(localStorage.getItem('database')) === null) {
+  data = [];
+}
+else {
+  data = JSON.parse(localStorage.getItem('database'));
+}
 // Promenjive za kontrolu editovnja 
 let isEditing = false;
 let editPersonID;
@@ -9,7 +16,7 @@ let removePersonPopUp = document.querySelector('.removePersonPopUp');
 let removePersonText = document.querySelector('.removePersonText')
 // Funkcija za ispisivanje
 let write = (data) => {
-  if (data === null) {
+  if (data === null ) {
     return;
   }
   else {
@@ -26,10 +33,44 @@ let write = (data) => {
     })
   }
 }
-// Popunjavanje niza iz local storage-a
-data = JSON.parse(localStorage.getItem('database'))
 // Pozivanje funkcije za ispisivanje
 write(data);
+
+// Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
+let closeAddPersonPopUp = document.querySelector('.closePopUp'); 
+  closeAddPersonPopUp.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.addPeronPopUp').style.display = 'none';
+    isEditing = false;
+})
+
+// Elementi iz doma za otvaranje pop-up prozora za dodavanje ljudi u listu
+let addPersonBTN = document.querySelector('.addPersonBTN');
+  addPersonBTN.addEventListener('click', () => {
+  document.querySelector('.addPeronPopUp').style.display = 'block';
+  isEditingFunc(isEditing);
+  inputFieldsHander('', '', '');
+  // localStorage.setItem('database', JSON.stringify(data));
+})
+
+// Pokupljane iz elementa iz doma i pozivanje funkcije
+let addPersonFormSubmit = document.querySelector('#addPersonForm');
+addPersonFormSubmit.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // Colecting data from input elements
+  let newPersonID = new Date().getTime().toString();
+  let newPersonName = document.querySelector('#name');
+  let newPersonJob = document.querySelector('#job');
+  let newPersonAge = document.querySelector('#age');
+  // Adding new person to the array of persons
+  addPerson(newPersonID, newPersonName.value, newPersonJob.value, newPersonAge.value);
+  // Store data to the browser
+  localStorage.setItem('database', JSON.stringify(data));
+  // Wirte function to write new array of persons
+  write(data);
+  // Close pop-up and reset the input value
+  document.querySelector('.addPeronPopUp').style.display = 'none';
+})
 
 // Funkcija za hendlovanje user inputa
 const inputFieldsHander = (name, job, age) => {
@@ -54,6 +95,7 @@ const isEditingFunc = (condition) => {
 
 // Funkcija za dodavanje Elemenata u niz
 let addPerson = (id, name, jobDescription, age) => {
+  localStorage.setItem('database', JSON.stringify(data));
   if (isEditing) {  
     // Step by Step 
     let editedPerson = {

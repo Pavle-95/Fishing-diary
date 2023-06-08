@@ -10,6 +10,37 @@ body {
   background-color: antiquewhite;
 }
 
+.day-night {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  z-index: 4;
+}
+
+.day-night p {
+  padding: 2px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  transition: .3s ease;
+  transform: translateX(0px);
+}
+
+.day-night::after {
+  left: -4px;
+  top: -2px;
+  display: block;
+  content: "";
+  background-color: #484545;
+  position: absolute;
+  z-index: -1;
+  height: 26px;
+  width: 45px;
+  border-radius: 20px;
+}
+
+
 .addPeronPopUp h2, .removePersonPopUp h2 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
@@ -72,6 +103,44 @@ body h1 {
   transform: translateX(-50%);
 }
 
+.removePersonPopUp {
+  border-radius: 10px;
+  display: none;
+  padding: 40px 30px;
+  background-color: rgb(182, 226, 211);
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.removePersonPopUp .btn-s .btn-1 {
+  background-color: rgb(255, 127, 127);
+  margin-right: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.removePersonPopUp .btn-s .btn-2 {
+  background-color: rgb(88 227 58 / 40%);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.removePersonPopUp .btn-s .btn-2:hover, .removePersonPopUp .btn-s .btn-1:hover {
+  cursor: pointer;
+  transition: .3s ease;
+  box-shadow: 0 0 10px gray;
+}
+
 .addPeronPopUp h2 {
   text-align: left;
   font-size: 20px;
@@ -96,7 +165,7 @@ body h1 {
 }
 
 .addPeronPopUp form  input[type=submit] {
-  background-color: aquamarine;
+  background-color: rgb(88 227 58 / 40%);
   padding: 10px 15px;
   border-radius: 5px;
   border: none;

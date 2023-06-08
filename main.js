@@ -5,7 +5,8 @@ let isEditing = false;
 let editPersonID;
 // Elementi iz DOM-a za ispisivanje podataka
 let personContainer = document.querySelector('.list');
-
+let removePersonPopUp = document.querySelector('.removePersonPopUp');
+let removePersonText = document.querySelector('.removePersonText')
 // Funkcija za ispisivanje
 let write = (data) => {
   if (data === null) {
@@ -19,7 +20,7 @@ let write = (data) => {
           <h2>Full Name:<span> ${element.name} </span></h2>
           <h2>Job Description:<span> ${element.jobDescription} </span></h2>
           <h2>Age:<span class="textLeft" > ${element.age} </span></h2>
-          <button onClick="removePerson(${element.id})" class="removePersonBTN">&#10005;</button>
+          <button onClick="removePerson(${element.id}, ${idx})" class="removePersonBTN">&#10005;</button>
           <button onClick="edit(${element.id}, ${idx})" class="editPersonBTN">&#9998;</button>
         </div>`
     })
@@ -69,12 +70,13 @@ let addPerson = (id, name, jobDescription, age) => {
     data = [...data, {id, name, jobDescription, age}];
   }
 }
-
 // Funkcija za Brisanje Elemenata
-let removePerson = (id) => {
-  data = data.filter(element => element.id != id);
-  localStorage.setItem('database', JSON.stringify(data));
-  write(data);
+let removePerson = (id, idx) => {
+  editPersonID = id;
+  removePersonPopUp.style.display = "block";
+  removePersonText.innerHTML = `<h2>Are you sure you want to delete: "${data[idx].name}"</h2>`
+  // Scrool to top 
+  window.scrollTo(0,0);
 }
 
 // Funkcija za editovanje vec postojecih ljudi unutar liste
@@ -89,6 +91,16 @@ let edit = (id, idx) => {
   // Scrool to top 
   window.scrollTo(0,0);
 }
+
+let removePersonHandler = (condition) => {
+
+  if (condition) {
+    data = data.filter(element => element.id != editPersonID);
+    localStorage.setItem('database', JSON.stringify(data));
+    write(data);
+  }
+  removePersonPopUp.style.display = "none";
+};
 
 // Elementi iz doma za zatvaranje pop-up prozora za dodavanje ljudi u listu
 let closeAddPersonPopUp = document.querySelector('.closePopUp'); 

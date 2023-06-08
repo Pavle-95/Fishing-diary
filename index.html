@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link class="style-element" rel="stylesheet" href="style.css">
   <title>CRUD</title>
 </head>
 <body>
@@ -17,6 +17,10 @@
   <div class="list">
   </div>
 
+  <button onclick="dayNightHandler()" class="day-night">
+    <p>&#127769;</p>
+  </button>
+
   <div class="addPeronPopUp">
     <h2 class="h2Text">Enter the new person</h2>
     <form id="addPersonForm">
@@ -28,6 +32,15 @@
     </form>
   </div>
 
+  <div class="removePersonPopUp">
+    <h2 class="removePersonText"></h2>
+    <div class="btn-s">
+        <button onclick="removePersonHandler(true)" class="btn-1">Remove</button>
+        <button onclick="removePersonHandler(false)" class="btn-2">Cancel</button>
+    </div>
+  </div>
+
   <script src="./main.js"></script>
+  <script src="./day-night.js"></script>
 </body>
 </html>

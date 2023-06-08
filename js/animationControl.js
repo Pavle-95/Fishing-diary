@@ -4,7 +4,7 @@ let nightMode;
 
 // Popunjavanje niza iz local storage-a ako postoji local storage
 if (JSON.parse(localStorage.getItem('nightMode')) === null) {
-    nightMode = false;
+    nightMode = true;
 }
 else {
   nightMode = JSON.parse(localStorage.getItem('nightMode'));

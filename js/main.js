@@ -1,11 +1,11 @@
 // Database (Neki podaci)
-let data = [];
+let sesionData = [];
 // Popunjavanje niza iz local storage-a ako postoji local storage
-if (JSON.parse(localStorage.getItem('database')) === null) {
-  data = [];
+if (JSON.parse(localStorage.getItem('sesionDatabase')) === null) {
+  sesionData = [];
 }
 else {
-  data = JSON.parse(localStorage.getItem('database'));
+  sesionData = JSON.parse(localStorage.getItem('sesionDatabase'));
 }
 // Promenjive za kontrolu editovnja 
 let isEditing = false;
@@ -16,13 +16,13 @@ let removeCatchPopUp = document.querySelector('.removeCatchPopUp');
 let removeCatchText = document.querySelector('.removeCatchText')
 
 // Funkcija za ispisivanje
-let write = (data) => {
-  if (data === null ) {
+let write = (sesionData) => {
+  if (sesionData === null ) {
     return;
   }
   else {
     catchContainer.innerHTML = ``;
-    data.forEach((element, idx) => {
+    sesionData.forEach((element, idx) => {
       catchContainer.innerHTML += `
         <div class="single-catch"> 
           <h2>Type of fish:<span> ${element.name} </span></h2>
@@ -36,7 +36,7 @@ let write = (data) => {
   }
 }
 // Pozivanje funkcije za ispisivanje
-write(data);
+write(sesionData);
 
 // Funkcija za hendlovanje user inputa
 const inputFieldsHander = (name, water, location, weight) => {
@@ -63,7 +63,7 @@ const isEditingFunc = (condition) => {
 
 // Funkcija za dodavanje Elemenata u niz
 let addCatch = (id, name, water, location, weight) => {
-  localStorage.setItem('database', JSON.stringify(data));
+  localStorage.setItem('sesionDatabase', JSON.stringify(sesionData));
   if (isEditing) {  
     // Step by Step 
     let handleCatch = {
@@ -73,12 +73,12 @@ let addCatch = (id, name, water, location, weight) => {
       location: location,
       weight: weight,
     }
-    data[handleCatchID] = handleCatch;
+    sesionData[handleCatchID] = handleCatch;
     isEditing = false;
   }
   else {
   // Spread operator
-    data = [...data, {id, name, water, location, weight}];
+    sesionData = [...sesionData, {id, name, water, location, weight}];
   }
 }
 // Funkcija za Brisanje Elemenata
@@ -86,7 +86,7 @@ let removeCatch = (id, idx) => {
   handleCatchID = id;
   document.querySelector('.addPeronPopUp').style.display = 'none';
   removeCatchPopUp.style.display = "block";
-  removeCatchText.innerHTML = `<h2>Are you sure you want to delete: "${data[idx].name}"</h2>`
+  removeCatchText.innerHTML = `<h2>Are you sure you want to delete: "${sesionData[idx].name}"</h2>`
   // Scrool to top 
   window.scrollTo(0,0);
 }
@@ -95,7 +95,7 @@ let removeCatch = (id, idx) => {
 let editCatch = (id, idx) => {
   isEditing = true;
   isEditingFunc(isEditing);
-  let edited = data.filter(element => element.id == id);
+  let edited = sesionData.filter(element => element.id == id);
   handleCatchID = idx;
   document.querySelector('.addPeronPopUp').style.display = 'block';
   // Give the input values of edit Catch;
@@ -106,9 +106,9 @@ let editCatch = (id, idx) => {
 
 let removeCatchHandler = (condition) => {
   if (condition) {
-    data = data.filter(element => element.id != handleCatchID);
-    localStorage.setItem('database', JSON.stringify(data));
-    write(data);
+    sesionData = sesionData.filter(element => element.id != handleCatchID);
+    localStorage.setItem('sesionDatabase', JSON.stringify(sesionData));
+    write(sesionData);
   }
   removeCatchPopUp.style.display = "none";
 };
@@ -142,9 +142,9 @@ addCatchFormSubmit.addEventListener("submit", (e) => {
   // Adding new Catch to the array of Catchs
   addCatch(newFishID, newFishName.value, newFishingWater.value, newFishingLocation.value, newFishWeight.value);
   // Store data to the browser
-  localStorage.setItem('database', JSON.stringify(data));
+  localStorage.setItem('sesionDatabase', JSON.stringify(sesionData));
   // Wirte function to write new array of Catchs
-  write(data);
+  write(sesionData);
   // Close pop-up and reset the input value
   document.querySelector('.addPeronPopUp').style.display = 'none';
 })

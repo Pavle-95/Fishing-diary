@@ -4,24 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link class="style-element" rel="stylesheet" href="./style/style.css">
+  <link class="style-element" rel="stylesheet" href="./style.css">
   <title>Fising Dairy</title>
 </head>
 <body>
-  <h1>Catch list</h1>
-
-  <div class="btn-s">
-    <button class="addCatchBTN">Add Catch</button>
-  </div>
-
-  <div class="list">
-  </div>
-
+  <!-- Day Night Switch -->
   <button onclick="dayNightHandler()" class="day-night">
     <p>&#127769;</p>
     <!-- <p>&#191;</p> -->
   </button>
 
+  <p class="statistics">&#x3f;</p>
+
+  <!-- Home Page -->
+  <section class="home-page active-page">
+    <!-- H1 Tag -->
+    <h1>Catch list</h1>
+
+    <!-- Add Catch Button -->
+    <div class="btn-s">
+      <button class="addCatchBTN">Add Catch</button>
+    </div>
+
+    <!-- Message -->
+    <div class="message-text">
+    </div>
+
+    <!-- List of catch -->
+    <div class="list">
+    </div>
+
+      <!-- Save Fishing Day -->
+  <div class="save-fishing-day">
+    <button class="save-day-btn">Save day fishing</button>
+  </div>
+
+  <!-- Add Catch Pop Up -->
   <div class="addPeronPopUp">
     <h2 class="h2Text">Enter the new type of fish</h2>
     <form id="addCatchForm">
@@ -35,9 +53,9 @@
     <div class="fish-gif">
       <img src="./img/giphy.gif" alt="Fish animation">
     </div>
-  
   </div>
 
+  <!-- Pop Up For catch remove -->
   <div class="removeCatchPopUp">
     <h2 class="removeCatchText"></h2>
     <div class="btn-s">
@@ -45,8 +63,19 @@
         <button onclick="removeCatchHandler(false)" class="btn-2">Cancel</button>
     </div>
   </div>
+  </section>
 
+  <section class="statistics-page">
+    <!-- H1 Tag -->
+    <h2>Statistics List</h2>
+    <!-- List of catch -->
+    <div class="statistics-list">
+    </div>
+  </section>
+  
   <script src="./js/main.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/statistics.js"></script>
   <script src="./js/animationControl.js"></script>
 </body>
 </html>

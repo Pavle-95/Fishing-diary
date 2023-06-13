@@ -12,6 +12,7 @@ statisticsBtn.addEventListener('click', () => {
 writeStatistics();
 
 function writeStatistics() {
+    statisticsList.innerHTML = '';
     data.forEach(dayOfFishing => {
         
         statisticsList.innerHTML += `
@@ -22,7 +23,5 @@ function writeStatistics() {
             </div>
         </div>
         `.trim();
-        
-        console.log(dayOfFishing.fishingDayCatch.length);
     })
 }

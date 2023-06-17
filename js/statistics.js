@@ -13,15 +13,33 @@ writeStatistics();
 
 function writeStatistics() {
     statisticsList.innerHTML = '';
-    data.forEach(dayOfFishing => {
+    data.forEach((dayOfFishing) => {
+        let text = ``;
+
+        dayOfFishing.fishingDayCatch.forEach(elem => {
+            text += `
+                <div class="single-cacth">
+                    <h2>${elem.name}</h2>
+                    <h2>${elem.water}</h2>
+                    <h2>${elem.location}</h2>
+                    <h2>${elem.weight}</h2>
+                </div>
+            `.trim();
+        });
         
+
         statisticsList.innerHTML += `
         <div class='single-day-of-fishing'>
             <h3>Date of Fishing: ${dayOfFishing.date}</h3>
             <div class=single-fish>
                 <h3>Fish: ${dayOfFishing.fishingDayCatch.length}</h3>
+                <h3>Catch: ${text}</h3>
             </div>
         </div>
         `.trim();
+        // console.log('******');
+        // dayOfFishing.fishingDayCatch.forEach(eleme => console.log(eleme));
+        // console.log('******');
+
     })
 }

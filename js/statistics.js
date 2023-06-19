@@ -37,9 +37,6 @@ function writeStatistics() {
             </div>
         </div>
         `.trim();
-        // console.log('******');
-        // dayOfFishing.fishingDayCatch.forEach(eleme => console.log(eleme));
-        // console.log('******');
 
     })
 }

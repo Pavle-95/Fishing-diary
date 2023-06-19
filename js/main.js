@@ -13,7 +13,16 @@ let handleCatchID;
 // Elementi iz DOM-a za ispisivanje podataka
 let catchContainer = document.querySelector('.list');
 let removeCatchPopUp = document.querySelector('.removeCatchPopUp');
-let removeCatchText = document.querySelector('.removeCatchText')
+let removeCatchText = document.querySelector('.removeCatchText');
+
+// Burger menu 
+let burgerMenuBtn = document.querySelector('.burger-menu');
+let burgerMenuContent = document.querySelector('.burger-menu-content');
+
+burgerMenuBtn.addEventListener('click', () => {
+  burgerMenuContent.classList.toggle('active-page');
+})
+
 
 // Funkcija za ispisivanje
 let write = (sesionData) => {

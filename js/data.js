@@ -15,6 +15,10 @@ if(data.length > 0) {
 let saveBtn = document.querySelector('.save-fishing-day');
 saveBtn.addEventListener('click', saveDayOfFishing);
 
+let Markobtn = document.querySelector('.fa-floppy-disk');
+console.log(Markobtn);
+
+
 function saveDayOfFishing() { 
     if(sesionData.length > 0) {
         let newSave = {

@@ -15,13 +15,13 @@ let catchContainer = document.querySelector('.list');
 let removeCatchPopUp = document.querySelector('.removeCatchPopUp');
 let removeCatchText = document.querySelector('.removeCatchText');
 
-// Burger menu 
-let burgerMenuBtn = document.querySelector('.burger-menu');
-let burgerMenuContent = document.querySelector('.burger-menu-content');
+// // Burger menu 
+// let burgerMenuBtn = document.querySelector('.burger-menu');
+// let burgerMenuContent = document.querySelector('.burger-menu-content');
 
-burgerMenuBtn.addEventListener('click', () => {
-  burgerMenuContent.classList.toggle('active-page');
-})
+// burgerMenuBtn.addEventListener('click', () => {
+//   burgerMenuContent.classList.toggle('active-page');
+// })
 
 
 // Funkcija za ispisivanje

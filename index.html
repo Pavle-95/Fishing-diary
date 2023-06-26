@@ -5,25 +5,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link class="style-element" rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/3197d413b8.js" crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <title>Fising Dairy</title>
 </head>
 <body>
   <!-- Navigation -->
   <header>
     <img class="logo" src="./img/pngtree-fishing-logo-illustration-art-png-image_6103654.png" alt="">
-    <button class="burger-menu">
-      <i class="fa-solid fa-bars"></i>
+    <!-- <button class="burger-menu"> -->
+    <!-- <i class="fa-solid fa-bars"></i> -->
+    <!-- </button> -->
+    <!-- <div class="burger-menu-content"> -->
+    <!-- Day Night Switch -->
+    
+    <button onclick="dayNightHandler()" class="day-night">
+      <p>&#127769;</p>
     </button>
-    <div class="burger-menu-content">
-      <!-- Day Night Switch -->
-      <button onclick="dayNightHandler()" class="day-night">
-        <p>&#127769;</p>
-        <!-- <p>&#191;</p> -->
-      </button>
+      
+    <!-- Save Fishing Day -->
+    <div class="save-fishing-day save-day">
+      <button class="save-day-btn"><p class="fa-solid fa-floppy-disk" >&#22278;</p></button>
+    </div>  
 
-      <i class="statistics fa-solid fa-eye"></i>
-    </div>
+    <i class="statistics fa-solid fa-eye"></i>
+    <!-- </div> -->
   </header>
 
   <!-- Home Page -->
@@ -43,11 +49,6 @@
     <!-- List of catch -->
     <div class="list">
     </div>
-
-      <!-- Save Fishing Day -->
-  <div class="save-fishing-day">
-    <button class="save-day-btn">Save</button>
-  </div>
 
   <!-- Add Catch Pop Up -->
   <div class="addPeronPopUp">

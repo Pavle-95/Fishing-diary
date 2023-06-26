@@ -12,16 +12,21 @@
 body {
   padding: 0px 20px;
   background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  flex: 0 0 80%;
+  padding-top: 50px;
 }
 
 header {
-  position: relative;
+  flex: 0 0 15%;
+  position: absolute;
   display: block;
   width: 100%;
-  margin: 0px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-left: 20px;
   margin-bottom: 20px;
 }
 
@@ -61,7 +66,7 @@ header .burger-menu-content {
 .day-night {
   background-color: transparent;
   position: absolute;
-  top: 20px;
+  top: 100px;
   left: 35px;
   border: none;
   z-index: 4;
@@ -136,6 +141,8 @@ body h2 {
   font-weight: 500;
 }
 
+/* Save */
+
 .list {
   padding: 20px 0px;
   display: block;
@@ -174,6 +181,7 @@ body h2 {
 }
 
 .addPeronPopUp {
+  z-index: 12;
   border-radius: 10px;
   display: none;
   padding: 40px 30px;
@@ -346,29 +354,45 @@ body h2 {
 }
 
 .save-fishing-day {
-  display: block;
-  position: relative;
-  width: 45%;
-  margin: 0px auto;
-  background-color: transparent;
+  /* display: block; */
+  position: absolute;
+  top: 140px;
+  left: 35px;
 }
 
 .save-fishing-day .save-day-btn {
-  max-width: 189px;
   color: rgb(80, 80, 80);
-  background-color: rgba(143, 247, 120, 0.548);
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 3px 4px;
+  border-radius: 50%;
   border: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 500;
-  font-size: 20px;
-  transition: .3s ease;
-  letter-spacing: -2px;
   text-align: center;
+  background: transparent;
+}
+
+.save-fishing-day .save-day-btn .fa-floppy-disk {
+  left: -20px;
+  top: -2px;
+  display: block;
+  content: "";
+  background-color: #484545;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: -1;
+  height: 26px;
+  width: 45px;
+  border-radius: 20px;
+}
+
+
+
+.save-fishing-day .save-day-btn .fa-floppy-disk:before{
+  padding: 4px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  transform: translateX(-15px);
+  transition: .3s ease;
+  position: absolute;
+  left: 21px;
+  top: 2px;
 }
 
 .message-text {
@@ -425,3 +449,4 @@ body h2 {
   font-weight: 300;
   font-size: 18px;
 }
+

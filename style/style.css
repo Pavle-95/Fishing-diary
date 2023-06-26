@@ -9,25 +9,26 @@
   display: block !important;
 }
 
+.switch-active p {
+  transition: .3s ease;
+  transform: translateX(0px) !important;
+}
+
 body {
   padding: 0px 20px;
   background-color: antiquewhite;
-  display: flex;
-  justify-content: center;
 }
 
 section {
-  flex: 0 0 80%;
-  padding-top: 50px;
+  padding-top: 35px;
 }
 
 header {
-  flex: 0 0 15%;
   position: absolute;
   display: block;
-  width: 100%;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  width: 75px;
+  height: 180px;
+  left: 5px;
 }
 
 header .logo {
@@ -59,17 +60,25 @@ header .burger-menu-content {
   padding: 2px;
   background-color: aliceblue;
   border-radius: 50%;
-  transform: translateX(-15px);
+  transform: translateX(-15px) rotateZ(180deg);
   transition: .3s ease;
+  width: 20px;
+  height: auto;
 }
 
 .day-night {
   background-color: transparent;
   position: absolute;
-  top: 100px;
+  top: 70px;
   left: 35px;
   border: none;
   z-index: 4;
+}
+
+.day-night img{
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .day-night::after {
@@ -86,22 +95,50 @@ header .burger-menu-content {
 }
 
 .statistics {
-  text-decoration: none;
-  display: none;
+  width: 30px;
+  background-color: transparent;
   position: absolute;
-  top: 50px;
-  left: 18px;
-  padding: 10px 10px;
-  background-color: #484545;
-  color: white;
-  border-radius: 50%;
+  top: 101px;
+  left: 35px;
   border: none;
-  transition: .3s ease;
+  z-index: 4;
+}
+.save-day-btn {
+  width: 30px;
+  background-color: transparent;
+  position: absolute;
+  top: 132px;
+  left: 35px;
+  border: none;
+  z-index: 4;
 }
 
-.statistics:hover {
+.statistics p , .save-day-btn p {
+  padding: 2px;
+  background-color: aliceblue;
+  border-radius: 50%;
   transition: .3s ease;
-  transform: rotateZ(180deg);
+  width: 20px;
+  transform: translateX(-15px);
+}
+
+.statistics img, .save-day-btn img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.statistics::after, .save-day-btn::after {
+  left: -20px;
+  top: -2px;
+  display: block;
+  content: "";
+  background-color: #484545;
+  position: absolute;
+  z-index: -1;
+  height: 26px;
+  width: 45px;
+  border-radius: 20px;
 }
 
 .fish-gif {
@@ -187,6 +224,7 @@ body h2 {
   padding: 40px 30px;
   background-color: rgb(182, 226, 211);
   position: absolute;
+  z-index: 2222;
   top: 100px;
   left: 50%;
   transform: translateX(-50%);
@@ -353,48 +391,6 @@ body h2 {
   box-shadow: 0 0 10px gray;
 }
 
-.save-fishing-day {
-  /* display: block; */
-  position: absolute;
-  top: 140px;
-  left: 35px;
-}
-
-.save-fishing-day .save-day-btn {
-  color: rgb(80, 80, 80);
-  padding: 3px 4px;
-  border-radius: 50%;
-  border: none;
-  text-align: center;
-  background: transparent;
-}
-
-.save-fishing-day .save-day-btn .fa-floppy-disk {
-  left: -20px;
-  top: -2px;
-  display: block;
-  content: "";
-  background-color: #484545;
-  position: absolute;
-  z-index: -1;
-  height: 26px;
-  width: 45px;
-  border-radius: 20px;
-}
-
-
-
-.save-fishing-day .save-day-btn .fa-floppy-disk:before{
-  padding: 4px;
-  background-color: aliceblue;
-  border-radius: 50%;
-  transform: translateX(-15px);
-  transition: .3s ease;
-  position: absolute;
-  left: 21px;
-  top: 2px;
-}
-
 .message-text {
   position: relative;
   z-index: 11111;
@@ -425,6 +421,19 @@ body h2 {
   display: none;
 }
 
+.statistics-page .stats-explain{
+  width: 70%;
+  margin: 20px auto;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 16px;
+  transition: .3s ease;
+  border-radius: 20px;
+  color: #484545;
+}
+
 .statistics-list {
   width: 80%;
   margin: 0px auto;
@@ -433,7 +442,7 @@ body h2 {
   justify-content: space-around;
   align-items: center;
   gap: 30px;
-
+  margin-top: 20px;
 }
 
 .statistics-list .single-day-of-fishing {
@@ -449,4 +458,3 @@ body h2 {
   font-weight: 300;
   font-size: 18px;
 }
-

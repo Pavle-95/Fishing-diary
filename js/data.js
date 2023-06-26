@@ -15,11 +15,9 @@ if(data.length > 0) {
 let saveBtn = document.querySelector('.save-fishing-day');
 saveBtn.addEventListener('click', saveDayOfFishing);
 
-let Markobtn = document.querySelector('.fa-floppy-disk');
-console.log(Markobtn);
-
 
 function saveDayOfFishing() { 
+    saveBtn.classList.add('switch-active');
     if(sesionData.length > 0) {
         let newSave = {
             id: new Date().getTime().toString(),
@@ -55,5 +53,6 @@ function message(message) {
 
     setTimeout(() => {
         textContainer.style.display = 'none';
+        saveBtn.classList.remove('switch-active');
     }, 1200);
 }

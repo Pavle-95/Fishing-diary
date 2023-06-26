@@ -4,6 +4,7 @@ let statistcsPage = document.querySelector('.statistics-page');
 let statisticsList = document.querySelector('.statistics-list');
 
 statisticsBtn.addEventListener('click', () => {
+    statisticsBtn.classList.toggle('switch-active')
     homePage.classList.toggle('active-page');
     statistcsPage.classList.toggle('active-page');
     writeStatistics();

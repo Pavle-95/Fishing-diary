@@ -12,24 +12,20 @@
 <body>
   <!-- Navigation -->
   <header>
+    <!-- Logo -->
     <img class="logo" src="./img/pngtree-fishing-logo-illustration-art-png-image_6103654.png" alt="">
-    <!-- <button class="burger-menu"> -->
-    <!-- <i class="fa-solid fa-bars"></i> -->
-    <!-- </button> -->
-    <!-- <div class="burger-menu-content"> -->
     <!-- Day Night Switch -->
-    
     <button onclick="dayNightHandler()" class="day-night">
-      <p>&#127769;</p>
+      <p><img src="./img/557033.png" alt="day-night"></p>
     </button>
-      
+    <!-- Stats -->
+    <button class="statistics">
+      <p><img src="./img/432548.png" alt=""></p>
+    </button>
     <!-- Save Fishing Day -->
-    <div class="save-fishing-day save-day">
-      <button class="save-day-btn"><p class="fa-solid fa-floppy-disk" >&#22278;</p></button>
-    </div>  
-
-    <i class="statistics fa-solid fa-eye"></i>
-    <!-- </div> -->
+    <button class="save-fishing-day save-day-btn">
+      <p><img src="./img/floppy-disk.png" alt=""></p>
+    </button>
   </header>
 
   <!-- Home Page -->
@@ -40,10 +36,6 @@
     <!-- Add Catch Button -->
     <div class="btn-s">
       <button class="addCatchBTN">Add Catch</button>
-    </div>
-
-    <!-- Message -->
-    <div class="message-text">
     </div>
 
     <!-- List of catch -->
@@ -78,11 +70,16 @@
 
   <section class="statistics-page">
     <!-- H1 Tag -->
-    <h2>Statistics List</h2>
+    <h2>Statistics</h2>
+    <p class="stats-explain">Discover your fishing session statistics here.</p>
     <!-- List of catch -->
     <div class="statistics-list">
     </div>
   </section>
+
+  <!-- Message -->
+  <div class="message-text">
+  </div>
   
   <script src="./js/main.js"></script>
   <script src="./js/data.js"></script>

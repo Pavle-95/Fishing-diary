@@ -23,7 +23,7 @@ function writeStatistics() {
                     <h2>${elem.name}</h2>
                     <h2>${elem.water}</h2>
                     <h2>${elem.location}</h2>
-                    <h2>${elem.weight}</h2>
+                    <h2>${elem.weight} kg</h2>
                 </div>
             `.trim();
         });
@@ -31,9 +31,9 @@ function writeStatistics() {
 
         statisticsList.innerHTML += `
         <div class='single-day-of-fishing'>
-            <h3>Date of Fishing: ${dayOfFishing.date}</h3>
+            <h3 class="single-date">Date of Fishing: <span> ${dayOfFishing.date} </span></h3>
             <div class=single-fish>
-                <h3>Fish: ${dayOfFishing.fishingDayCatch.length}</h3>
+                <h3 class='fish-img'>Fish:  ${dayOfFishing.fishingDayCatch.length + `<img style='max-width:60px' src="./img/cute-fish-line-drawing-png.webp" alt="Ribic">`}</h3>
                 <h3>Catch: ${text}</h3>
             </div>
         </div>

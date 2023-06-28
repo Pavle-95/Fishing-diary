@@ -453,6 +453,82 @@ body h2 {
   padding: 10px 15px;
 }
 
+.statistics-list .single-day-of-fishing .single-date{
+  position: relative;
+  margin-bottom: 60px;
+}
+.statistics-list .single-day-of-fishing .single-date span{
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  background-color: #64cce74f;
+  border: 1px solid #64cce7;
+  border-radius: 20px;
+  color: black;
+  padding: 10px 15px;
+
+}
+
+.statistics-list .single-day-of-fishing .single-fish:first-of-type {
+  position: relative;
+}
+
+.statistics-list .single-day-of-fishing .single-fish:first-of-type img {
+  height: auto;
+  display: block;
+  position: absolute;
+  top: -20px;
+  left: 80px;
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 20px;
+}
+
+
+.statistics-list .single-day-of-fishing .single-fish h3 .single-cacth {
+  background-color: #e9b2a054;
+  border: 1px solid #e9b2a0;
+  border-radius: 20px;
+  color: black;
+  padding: 10px 15px;
+  margin-top: 30px;
+
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 .single-cacth:first-of-type {
+  margin-left: -80px;
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h2 {
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: left;
+  position: relative;
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h2::before {
+  position: absolute;
+  left: -8px;
+  top: 8px;
+  content: '';
+  display: block;
+  width: 5px;
+  height: 1px;
+  background-color: black;
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h3{
+  font-size: 15px;
+}
+
+.statistics-list .single-day-of-fishing .single-fish h3 {
+  font-size: 18px;
+  margin: 10px 0px;
+}
+
 .statistics-list .single-day-of-fishing h3 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 300;

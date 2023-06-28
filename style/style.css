@@ -455,11 +455,13 @@ body h2 {
 
 .statistics-list .single-day-of-fishing .single-date{
   position: relative;
+  text-align: center;
   margin-bottom: 60px;
 }
 .statistics-list .single-day-of-fishing .single-date span{
   position: absolute;
-  left: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 25px;
   background-color: #64cce74f;
   border: 1px solid #64cce7;

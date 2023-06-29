@@ -455,6 +455,102 @@
     font-size: 18px;
   }
 
+  .statistics-list .single-day-of-fishing .single-date{
+    position: relative;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .statistics-list .single-day-of-fishing .single-date span{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    top: 25px;
+    background-color: #64cce74f;
+    border: 1px solid #64cce7;
+    border-radius: 20px;
+    color: whitesmoke;
+    padding: 10px 15px;
+  
+  }
+
+  .statistics-list .single-day-of-fishing .single-fish:first-of-type {
+    position: relative;
+  }
+  
+  .statistics-list .single-day-of-fishing .single-fish:first-of-type img {
+    height: auto;
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 80px;
+  }
+  
+  .statistics-list .single-day-of-fishing .single-fish h3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 20px;
+  }
+  
+  
+  .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth {
+    background-color: #e9b2a054;
+    border: 1px solid #e9b2a0;
+    border-radius: 20px;
+    color: black;
+    padding: 10px 15px;
+    margin-top: 30px;
+  
+  }
+  
+  /* .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth:first-of-type {
+    margin-left: -80px;
+  }
+   */
+  .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h2 {
+    font-size: 15px;
+    text-transform: capitalize;
+    text-align: left;
+    position: relative;
+  }
+  
+  .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h2::before {
+    position: absolute;
+    left: -8px;
+    top: 8px;
+    content: '';
+    display: block;
+    width: 5px;
+    height: 1px;
+    background-color: white;
+  }
+  
+  .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h3{
+    font-size: 15px;
+  }
+  
+  .statistics-list .single-day-of-fishing .single-fish h3 {
+    font-size: 18px;
+    margin: 10px 0px;
+  }
+  
+
+  .single-catch {
+    display: flex;
+  }
+
+  .single-catch  .catch-text{
+    max-width: 100%;
+    display: flex;
+  }
+  
+  
+  .single-catch  .catch-text{
+    max-width: 100%;
+    display: flex;
+  }
+  
+
   @keyframes day-night {
     0% {transform: translateX(0px)}
     100% {transform: translateX(15px) rotateZ(180deg);}

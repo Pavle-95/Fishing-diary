@@ -149,3 +149,12 @@ addCatchFormSubmit.addEventListener("submit", (e) => {
   // Close pop-up and reset the input value
   document.querySelector('.addPeronPopUp').style.display = 'none';
 })
+
+const user = new User();
+
+let userData =  {name: 'palve', age:  1995, hairColor: 'black', eyeColor: 'Blue'};
+
+user.getInfo(userData);
+
+
+

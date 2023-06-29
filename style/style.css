@@ -399,7 +399,7 @@ body h2 {
 }
 
 .user-content {
-  display: block;
+  display: none;
   position: relative;
   z-index: 11111;
   width: 80%;

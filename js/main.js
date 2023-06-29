@@ -29,7 +29,7 @@ let write = (sesionData) => {
           <h2>Type of fish:<span> ${element.name} </span></h2>
           <h2>Fishing water:<span> ${element.water} </span></h2>
           <h2>Fishing location:<span> ${element.location} </span></h2>
-          <h2>Fish weight:<span class="textLeft" > ${element.weight}kg </span></h2>
+          <h2>Fish weight:<span class="textLeft" > ${element.weight}g </span></h2>
           <button onClick="removeCatch(${element.id}, ${idx})" class="removeCatchBTN">&#10005;</button>
           <button onClick="editCatch(${element.id}, ${idx})" class="editCatchBTN">&#9998;</button>
         </div>`
@@ -150,11 +150,11 @@ addCatchFormSubmit.addEventListener("submit", (e) => {
   document.querySelector('.addPeronPopUp').style.display = 'none';
 })
 
-const user = new User();
+// const user = new User();
 
-let userData =  {name: 'palve', age:  1995, hairColor: 'black', eyeColor: 'Blue'};
+// let userData =  {name: 'palve', age:  1995, hairColor: 'black', eyeColor: 'Blue'};
 
-user.getInfo(userData);
+// user.getInfo(userData);
 
 
 

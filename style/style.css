@@ -529,8 +529,9 @@ body h2 {
   height: auto;
   display: block;
   position: absolute;
-  top: -20px;
+  top: 50%;
   left: 80px;
+  transform: translateY(-50%);
 }
 
 .statistics-list .single-day-of-fishing .single-fish h3 {
@@ -555,7 +556,6 @@ body h2 {
 .statistics-list .single-day-of-fishing .single-fish h3 .single-cacth h2 {
   font-size: 15px;
   text-transform: capitalize;
-  text-align: left;
   position: relative;
   margin-bottom: 0px;
   text-align: center;
@@ -579,6 +579,7 @@ body h2 {
 .statistics-list .single-day-of-fishing .single-fish h3 {
   font-size: 18px;
   margin: 10px 0px;
+  position: relative;
 }
 
 .statistics-list .single-day-of-fishing h3 {

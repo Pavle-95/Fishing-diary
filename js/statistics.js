@@ -21,7 +21,7 @@ function writeStatistics() {
             text += `
                 <div class="single-cacth">
                     <h2>${elem.name}</h2>
-                    <h2>${elem.weight} kg</h2>
+                    <h2>${elem.weight}g</h2>
                 </div>
             `.trim();
         });

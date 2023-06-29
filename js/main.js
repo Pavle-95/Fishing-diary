@@ -150,11 +150,23 @@ addCatchFormSubmit.addEventListener("submit", (e) => {
   document.querySelector('.addPeronPopUp').style.display = 'none';
 })
 
-// const user = new User();
+////////////Idemo novi nacin za usera
 
-// let userData =  {name: 'palve', age:  1995, hairColor: 'black', eyeColor: 'Blue'};
+const user = new User();
 
-// user.getInfo(userData);
+let htmlUserContainer = document.querySelector('.user-content');
+let openUserDialogBTN = document.querySelector('header .logo')
 
+let userData =  null;
 
+openUserDialogBTN.addEventListener('click', ()=> {
+  user.openUserDialog(htmlUserContainer)
+});
 
+function userFormSubmitHandler() {
+  let userName = document.querySelector('.userFormName');
+  console.log(userName.value);
+}
+
+user.getInfo(userData, htmlUserContainer);
+// user.createUserDialog(userData)

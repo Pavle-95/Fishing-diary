@@ -529,8 +529,9 @@ body h2 {
   height: auto;
   display: block;
   position: absolute;
-  top: -20px;
+  top: 50%;
   left: 80px;
+  transform: translateY(-50%);
 }
 
 .statistics-list .single-day-of-fishing .single-fish h3 {

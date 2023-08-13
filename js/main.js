@@ -155,17 +155,59 @@ addCatchFormSubmit.addEventListener("submit", (e) => {
 const user = new User();
 
 let htmlUserContainer = document.querySelector('.user-content');
-let openUserDialogBTN = document.querySelector('header .logo')
+let openUserDialogBTN = document.querySelector('header .logo');
 
-let userData =  null;
+if (JSON.parse(localStorage.getItem('USER_INFO')) === null) {
+  userData = null;
+}
+else {
+  userData = JSON.parse(localStorage.getItem('USER_INFO'));
+}
+
 
 openUserDialogBTN.addEventListener('click', ()=> {
   user.openUserDialog(htmlUserContainer)
 });
 
 function userFormSubmitHandler() {
-  let userName = document.querySelector('.userFormName');
-  console.log(userName.value);
+  let userFormName = document.querySelector('.userFormName');
+  let userFormAge = document.querySelector('.userFormAge');
+  let userFormAddress = document.querySelector('.userFormAddress');
+  let userFormJMBG = document.querySelector('.userFormJMBG');
+  let userFormIMG = document.querySelector('.userFormIMG');
+  let userFormDate = document.querySelector('.userFormDate');
+
+  let userInputFildes = document.querySelectorAll('.user-holder div input');
+  userInputFildes.forEach(element => {
+    if (element.value === '') {
+      element.style.border = '1px solid red';
+    }
+    else {
+      element.style.border = '1px solid transparent';
+    }
+  })
+
+  if (userFormName.value === '' ||
+      userFormAge.value === '' ||
+      userFormAddress.value === '' ||
+      userFormJMBG.value === '' ||
+      userFormIMG.value === '' ||
+      userFormDate.value === ''
+      ) {
+    message("Please fill all fields");
+    return;
+  }
+
+  else {
+    userData = {name: userFormName.value, age: userFormAge.value, address: userFormAddress.value, jmbg: userFormJMBG.value, img: userFormIMG.value, date: userFormDate.value} 
+    user.getInfo(userData, htmlUserContainer)
+  }
+  console.log(userData);
+}
+
+function userFormEditHandler() {
+  userData = null;
+  user.getInfo(userData, htmlUserContainer);
 }
 
 user.getInfo(userData, htmlUserContainer);

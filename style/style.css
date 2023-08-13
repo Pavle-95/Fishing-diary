@@ -405,7 +405,7 @@ body h2 {
 .user-content {
   display: none;
   position: relative;
-  z-index: 11111;
+  z-index: 1111;
   width: 80%;
   margin: 0px auto;
   max-width: 350px;

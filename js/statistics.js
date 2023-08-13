@@ -26,7 +26,6 @@ function writeStatistics() {
             `.trim();
         });
         
-
         statisticsList.innerHTML += `
         <div class='single-day-of-fishing'>
             <h3 class="single-date">Date of Fishing: <span> ${dayOfFishing.date} </span></h3>
@@ -37,6 +36,5 @@ function writeStatistics() {
             
         </div>
         `.trim();
-
     })
 }
